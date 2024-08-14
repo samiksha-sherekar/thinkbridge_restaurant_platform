@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    background-color:#fce9fe !important;
+}
+
+.container-margin{
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 48px;
+    margin-bottom: 0px;
+}
+.card{
+    --bs-card-border-color : #f37ef4;
+    --bs-card-bg: #fef4ff !important;
+}
+@media (max-width: 575.98px) {
+    .container-margin {
+        margin: 20px; 
+    }
+}

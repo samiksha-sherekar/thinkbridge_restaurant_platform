@@ -1,0 +1,98 @@
+
+<div class="container-margin">
+    <div class="card">
+        <div class="card-body">
+        <h3 class="card-title text-center">Restaurant</h3>
+        <form class="row"  [formGroup]="restaurantForm" (ngSubmit)="saveRestaurant()">
+            <!-- Alert Message for Feedback-->
+            <div *ngIf="showAlert" class="alert alert-{{alertColor}}" role="alert">
+                {{ alertMsg }}
+            </div>
+            <!-- Name Input Field-->
+            <div class="col-md-6 col-sm-12 mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control shadow-none" id="name" formControlName="name">
+                    <span *ngIf="restaurantForm.controls['name']?.errors && isSubmitted">
+                        <div class="text-danger" *ngIf="restaurantForm.controls['name'].errors?.['required']">
+                            Name is required!
+                        </div>
+                        <div class="text-danger" *ngIf="restaurantForm.controls['name'].errors?.['minlength']">
+                            Name must contain min. {{restaurantForm.controls['name'].errors?.['minlength']?.['requiredLength']}} characters!
+                        </div>
+                        <div class="text-danger" *ngIf="restaurantForm.controls['name'].errors?.['maxlength']">
+                            Name must contain max. {{restaurantForm.controls['name'].errors?.['maxlength']?.['requiredLength']}} characters!
+                        </div>
+                    </span>
+            </div>
+
+            <!-- Location Input Field-->            
+            <div class="col-md-6 col-sm-12 mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control shadow-none" id="location" formControlName="location">
+                    <span *ngIf="restaurantForm.controls['location']?.errors && isSubmitted">
+                        <div class="text-danger" *ngIf="restaurantForm.controls['location'].errors?.['required']">
+                            Location is required!
+                        </div>
+                        <div class="text-danger" *ngIf="restaurantForm.controls['location'].errors?.['minlength']">
+                            Location must contain min. {{restaurantForm.controls['location'].errors?.['minlength']?.['requiredLength']}} characters!
+                        </div>
+                        <div class="text-danger" *ngIf="restaurantForm.controls['location'].errors?.['maxlength']">
+                            Location must contain max. {{restaurantForm.controls['location'].errors?.['maxlength']?.['requiredLength']}} characters!
+                        </div>
+                    </span>
+            </div>
+
+            <!-- Email Input Field -->
+            <div class="col-md-6 col-sm-12 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control shadow-none" id="email" formControlName="email">
+                    <span *ngIf="restaurantForm.controls['email']?.errors && isSubmitted">
+                        <div class="text-danger" *ngIf="restaurantForm.controls['email'].errors?.['required']">
+                            Email is required!
+                        </div>
+                        <div class="text-danger" *ngIf="restaurantForm.controls['email'].errors?.['email']">
+                            Email must be a valid email address
+                        </div>
+                    </span>
+            </div>
+
+            <!-- Phone Input Field -->
+            <div class="col-md-6 col-sm-12 mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control shadow-none" id="phone" formControlName="phone">
+                    <span *ngIf="restaurantForm.controls['phone']?.errors && isSubmitted">
+                        <div class="text-danger" *ngIf="restaurantForm.controls['phone'].errors?.['required']">
+                            Phone is required!
+                        </div>
+                        <div class="text-danger" *ngIf="restaurantForm.controls['phone'].errors?.['pattern']">
+                            Invalid phone number format.
+                        </div>
+                    </span>
+            </div>
+
+            <!-- Description Input Field -->
+            <div class="col-md-6 col-sm-12 mb-3">
+                <label for="des" class="form-label">Description</label>
+                <textarea name="" id="des" class="form-control" formControlName="description"></textarea>
+                    <span *ngIf="restaurantForm.controls['description']?.errors && isSubmitted">
+                        <div class="text-danger" *ngIf="restaurantForm.controls['description'].errors?.['required']">
+                            Description is required!
+                        </div>
+                        <div class="text-danger" *ngIf="restaurantForm.controls['description'].errors?.['minlength']">
+                            Description must contain min. {{restaurantForm.controls['description'].errors?.['minlength']?.['requiredLength']}} characters!
+                        </div>
+                        <div class="text-danger" *ngIf="restaurantForm.controls['description'].errors?.['maxlength']">
+                            Description must contain max. {{restaurantForm.controls['description'].errors?.['maxlength']?.['requiredLength']}} characters!
+                        </div>
+                    </span>
+            </div>
+            <!-- Form Action Buttons -->
+            <div class="col-12 text-end">
+                <button class="btn btn-danger me-2" type="reset">Reset</button>
+                <button class="btn btn-primary" type="submit">{{button}}</button>
+            </div>
+        </form>
+        </div>
+    </div>    
+</div>
+
