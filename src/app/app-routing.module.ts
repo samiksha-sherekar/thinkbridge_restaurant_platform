@@ -4,7 +4,7 @@ import { RestaurantListComponent } from './restaurant/restaurant-list/restaurant
 import { RestaurantFormComponent } from './restaurant/restaurant-form/restaurant-form.component';
 
 const routes: Routes = [
-  { path: '', component: RestaurantListComponent},
+  { path: '', component: RestaurantListComponent, pathMatch: 'full'},
   { path: 'restaurant-list', component: RestaurantListComponent},
   { path: 'add', component: RestaurantFormComponent},
   { path: 'edit/:id', component: RestaurantFormComponent}
